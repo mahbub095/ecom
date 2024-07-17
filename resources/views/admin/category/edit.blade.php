@@ -24,8 +24,8 @@
                                     <label>Icon</label>
                                     <div>
                                         <button class="btn btn-primary" data-icon="{{ $category->icon }}"
-                                            data-selected-class="btn-danger" data-unselected-class="btn-info"
-                                            role="iconpicker" name="icon"></button>
+                                                data-selected-class="btn-danger" data-unselected-class="btn-info"
+                                                role="iconpicker" name="icon"></button>
                                     </div>
 
                                 </div>
