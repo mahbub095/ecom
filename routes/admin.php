@@ -2,7 +2,11 @@
 
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ChildCategoryController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductImageGalleryController;
+use App\Http\Controllers\Backend\ProductVariantController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
@@ -35,4 +39,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('child-category/change-status', [ChildCategoryController::class, 'changeStatus'])->name('child-category.change-status');
     Route::get('get-subcategories', [ChildCategoryController::class, 'getSubCategories'])->name('get-subcategories');
     Route::resource('child-category', ChildCategoryController::class);
+
+    /** Brand routes */
+    Route::put('brand/change-status', [BrandController::class, 'changeStatus'])->name('brand.change-status');
+    Route::resource('brand', BrandController::class);
+
+
+    /** Products routes */
+    Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
+    Route::get('product/get-child-categories', [ProductController::class, 'getChildCategories'])->name('product.get-child-categories');
+    Route::put('product/change-status', [ProductController::class, 'changeStatus'])->name('product.change-status');
+    Route::resource('products', ProductController::class);
+
+    /** Products image gallery route */
+    Route::resource('products-image-gallery', ProductImageGalleryController::class);
+
+    /** Products variant route */
+    Route::put('products-variant/change-status', [ProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
+    Route::resource('products-variant', ProductVariantController::class);
 });
