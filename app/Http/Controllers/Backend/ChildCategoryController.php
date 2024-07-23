@@ -82,6 +82,8 @@ class ChildCategoryController extends Controller
         $categories = Category::all();
         $childCategory = ChildCategory::findOrFail($id);
         $subCategories = SubCategory::where('category_id', $childCategory->category_id)->get();
+//        Test Query
+//        $subCategories = SubCategory::findOrFail($id);
 
         return view('admin.child-category.edit', compact('categories', 'childCategory', 'subCategories'));
     }
