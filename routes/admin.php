@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminVendorProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ChildCategoryController;
 use App\Http\Controllers\Backend\ProductController;
@@ -44,6 +45,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('brand/change-status', [BrandController::class, 'changeStatus'])->name('brand.change-status');
     Route::resource('brand', BrandController::class);
 
+    /** Vendor Profile routes */
+    Route::resource('vendor-profile', AdminVendorProfileController::class);
 
     /** Products routes */
     Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
