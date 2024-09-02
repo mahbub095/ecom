@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\SettingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -60,4 +61,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     /** Products variant route */
     Route::put('products-variant/change-status', [ProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
     Route::resource('products-variant', ProductVariantController::class);
+
+    /** settings routes */
+    Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::put('generale-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('generale-setting-update');
+    Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
+    Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
 });

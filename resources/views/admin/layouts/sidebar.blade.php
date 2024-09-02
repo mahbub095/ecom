@@ -20,24 +20,23 @@
                     <span>Manage Categories</span></a>
                 <ul class="dropdown-menu">
                     <li class=" "><a class="nav-link" href="{{ route('admin.category.index') }}">Category</a></li>
-                    <li class=" "><a class="nav-link" href="{{ route('admin.sub-category.index') }}">Sub Category</a>
+                    <li class=" "><a class="nav-link" href="{{ route('admin.sub-category.index') }}">Sub
+                            Category</a>
                     </li>
-                    <li class=""><a class="nav-link" href="{{ route('admin.child-category.index') }}">Child Category</a>
+                    <li class=""><a class="nav-link" href="{{ route('admin.child-category.index') }}">Child
+                            Category</a>
                     </li>
 
                 </ul>
             </li>
 
 
-            <li
-                class="dropdown  }}">
+            <li class="dropdown  }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-box"></i>
                     <span>Manage Products</span></a>
                 <ul class="dropdown-menu">
-                    <li class=" "><a class="nav-link"
-                                     href="{{ route('admin.brand.index') }}">Brands</a></li>
-                    <li
-                        class=" ">
+                    <li class=" "><a class="nav-link" href="{{ route('admin.brand.index') }}">Brands</a></li>
+                    <li class=" ">
                         <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
                     </li>
                     {{--      <li class="{{ setActive(['admin.seller-products.*']) }}"><a class="nav-link"
@@ -96,8 +95,7 @@
                               <span>Transactions</span></a>
                       </li>
 --}}
-            <li
-                class="dropdown  ">
+            <li class="dropdown  ">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Ecommerce</span></a>
                 <ul class="dropdown-menu">
@@ -108,8 +106,8 @@
                         <li class="{{ setActive(['admin.shipping-rule.*']) }}"><a class="nav-link"
                                 href="{{ route('admin.shipping-rule.index') }}">Shipping Rule</a></li>
                   --}}
-                    <li class=" "><a class="nav-link"
-                                     href="{{ route('admin.vendor-profile.index') }}">Vendor Profile</a></li>
+                    <li class=" "><a class="nav-link" href="{{ route('admin.vendor-profile.index') }}">Vendor
+                            Profile</a></li>
                     {{--          <li class="{{ setActive(['admin.payment-settings.*']) }}"><a class="nav-link"
                                       href="{{ route('admin.payment-settings.index') }}">Payment Settings</a></li>
 --}}
@@ -130,13 +128,11 @@
                                       </ul>
                                   </li>
                       --}}
-            <li
-                class="dropdown  ">
+            <li class="dropdown  ">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
-                    <li class=" "><a class="nav-link"
-                                     href="{{ route('admin.slider.index') }}">Slider</a></li>
+                    <li class=" "><a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a></li>
 
                     {{--  <li class="{{ setActive(['admin.slider.*']) }}"><a class="nav-link"
                               href="{{ route('admin.home-page-setting') }}">Home Page Setting</a></li>
@@ -146,11 +142,14 @@
                       <li class="{{ setActive(['admin.about.index']) }}"><a class="nav-link"
                               href="{{ route('admin.about.index') }}">About page</a></li>
                       <li class="{{ setActive(['admin.terms-and-conditions.index']) }}"><a class="nav-link"
-                              href="{{ route('admin.terms-and-conditions.index') }}">Terms Page</a></li>--}}
+                              href="{{ route('admin.terms-and-conditions.index') }}">Terms Page</a></li> --}}
 
                 </ul>
             </li>
-            {{--
+            <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-wrench"></i>
+                    <span>Settings</span></a></li>
+        </ul>
+        {{--
                         <li><a class="nav-link {{ setActive(['admin.advertisement.*']) }}"
                                 href="{{ route('admin.advertisement.index') }}"><i class="fas fa-ad"></i>
                                 <span>Advertisement</span></a></li>
