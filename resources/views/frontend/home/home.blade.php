@@ -7,7 +7,7 @@ e-Commerce HTML Template
 <!--============================
             BANNER PART 2 START
         ==============================-->
-@include('frontend.home.sections.banner-slider') 
+@include('frontend.home.sections.banner-slider')
 <!--============================
             BANNER PART 2 END
         ==============================-->
@@ -16,7 +16,7 @@ e-Commerce HTML Template
 <!--============================
             FLASH SELL START
         ==============================-->
-{{-- @include('frontend.home.sections.flash-sale') --}}
+@include('frontend.home.sections.flash-sale')
 <!--============================
             FLASH SELL END
         ==============================-->
