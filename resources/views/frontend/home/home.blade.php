@@ -25,7 +25,7 @@ e-Commerce HTML Template
 <!--============================
            MONTHLY TOP PRODUCT START
         ==============================-->
-{{-- @include('frontend.home.sections.top-category-product') --}}
+{{--@include('frontend.home.sections.top-category-product')--}}
 <!--============================
            MONTHLY TOP PRODUCT END
         ==============================-->
