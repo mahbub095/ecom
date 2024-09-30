@@ -24,7 +24,7 @@
                     <div class="wsus__product_item">
                         <span class="wsus__new">New</span>
                         <span class="wsus__minus">-20%</span>
-                        <a class="wsus__pro_link" href="product_details.html">
+                        <a class="wsus__pro_link" href="{{route('product-detail', $product->slug)}}">
                             <img src="{{asset($product->thumb_image)}}" alt="product" class="img-fluid w-100 img_1"/>
                             <img src=" @if(isset($product->productImageGalleries[0]->image))
                             {{asset($product->productImageGalleries[0]->image)}}
@@ -52,7 +52,7 @@
                             <p class="wsus__price">{{$settings->currency_icon}}{{$product->offer_price}}
                                 <del>{{$settings->currency_icon}}{{$product->price}}</del>
                             </p>
-{{--                            <a class="add_cart" href="#">add to cart</a>--}}
+                             <a class="add_cart" href="#">add to cart</a> 
                         </div>
                     </div>
                 </div>
