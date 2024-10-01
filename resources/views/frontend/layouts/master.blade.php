@@ -29,9 +29,7 @@
 
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
-    {{-- @if($settings->layout === 'RTL')
-    <link rel="stylesheet" href="{{asset('frontend/css/rtl.css')}}">
-    @endif --}}
+ 
 </head>
 
 <body>
@@ -48,7 +46,7 @@
     <!--============================
         MAIN MENU START
     ==============================-->
-        {{-- @include('frontend.layouts.menu') --}}
+    
     <!--============================
         MAIN MENU END
     ==============================-->
@@ -95,7 +93,7 @@
     <!--============================
         FOOTER PART START
     ==============================-->
-        {{-- @include('frontend.layouts.footer') --}}
+     
     <!--============================
         FOOTER PART END
     ==============================-->
@@ -167,7 +165,7 @@
             $('.auto_click').click();
         })
     </script>
-    {{-- @include('frontend.layouts.scripts') --}}
+    @include('frontend.layouts.scripts')
     @stack('scripts')
 </body>
 

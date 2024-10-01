@@ -15,36 +15,70 @@ class CartController extends Controller
 {
 
     /** Show cart page  */
-  
-    /** Add item to cart */
-    public function addToCart(Request $request)
+    public function cartDetails()
     {
-
-        $product = Product::findOrFail($request->product_id);
-
-        // check product quantity
-        if($product->qty === 0){
-            return response(['status' => 'error', 'message' => 'Product stock out']);
-        }elseif($product->qty < $request->qty){
-            return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
+        $cartItems = Cart::content();
+        if(count($cartItems) === 0){
+          
+            toastr('Please add some products in your cart for view the cart page', 'warning', 'Cart is empty!');
+            return redirect()->route('home');
         }
+ 
+        return view('frontend.pages.cart-detail');
+    }
 
-        $variants = [];
-        $variantTotalAmount = 0;
+   /** Add item to cart */
+   public function addToCart(Request $request)
+   {
 
-        if($request->has('variants_items')){
-            foreach($request->variants_items as $item_id){
-                $variantItem = ProductVariantItem::find($item_id);
-                $variants[$variantItem->productVariant->name]['name'] = $variantItem->name;
-                $variants[$variantItem->productVariant->name]['price'] = $variantItem->price;
-                $variantTotalAmount += $variantItem->price;
-            }
-        }
-     }
+       $product = Product::findOrFail($request->product_id);
+
+       // check product quantity
+       if($product->qty === 0){
+           return response(['status' => 'error', 'message' => 'Product stock out']);
+       }elseif($product->qty < $request->qty){
+           return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
+       }
+
+       $variants = [];
+       $variantTotalAmount = 0;
+
+       if($request->has('variants_items')){
+           foreach($request->variants_items as $item_id){
+               $variantItem = ProductVariantItem::find($item_id);
+               $variants[$variantItem->productVariant->name]['name'] = $variantItem->name;
+               $variants[$variantItem->productVariant->name]['price'] = $variantItem->price;
+               $variantTotalAmount += $variantItem->price;
+           }
+       }
 
 
+       /** check discount */
+       $productPrice = 0;
 
-   
+       if(checkDiscount($product)){
+           $productPrice = $product->offer_price;
+       }else {
+           $productPrice = $product->price;
+       }
+
+       $cartData = [];
+       $cartData['id'] = $product->id;
+       $cartData['name'] = $product->name;
+       $cartData['qty'] = $request->qty;
+       $cartData['price'] = $productPrice;
+       $cartData['weight'] = 10;
+       $cartData['options']['variants'] = $variants;
+       $cartData['options']['variants_total'] = $variantTotalAmount;
+       $cartData['options']['image'] = $product->thumb_image;
+       $cartData['options']['slug'] = $product->slug;
+
+       Cart::add($cartData);
+
+       return response(['status' => 'success', 'message' => 'Added to cart successfully!']);
+   }
+
+
 
     /** get product total */
     public function getProductTotal($rowId)
