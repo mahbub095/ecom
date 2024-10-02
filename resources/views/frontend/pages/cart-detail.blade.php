@@ -67,57 +67,50 @@
                                             <a href="#" class="common_btn clear_cart">clear cart</a>
                                         </th>
                                     </tr>
-                                    @foreach ($cartItems as $item)
+                                 
                                     <tr class="d-flex">
-                                        <td class="wsus__pro_img"><img src="{{asset($item->options->image)}}" alt="product"
+                                        <td class="wsus__pro_img"><img src="" alt="product"
                                                 class="img-fluid w-100">
                                         </td>
 
                                         <td class="wsus__pro_name">
-                                            <p>{!! $item->name !!}</p>
-                                            @foreach ($item->options->variants as $key => $variant)
-                                                <span>{{$key}}: {{$variant['name']}} ({{$settings->currency_icon.$variant['price']}})</span>
-                                            @endforeach
+                                            
 
                                         </td>
 
                                         <td class="wsus__pro_tk">
-                                            <h6>{{$settings->currency_icon.$item->price}}</h6>
+                                            <h6> </h6>
                                         </td>
 
                                         <td class="wsus__pro_tk">
-                                            <h6 id="{{$item->rowId}}">{{$settings->currency_icon.($item->price + $item->options->variants_total) * $item->qty}}</h6>
+                                            <h6 id=" </h6>
                                         </td>
 
                                         <td class="wsus__pro_select">
                                             <div class="product_qty_wrapper">
                                                 <button class="btn btn-danger product-decrement">-</button>
-                                                <input class="product-qty" data-rowid="{{$item->rowId}}" type="text" min="1" max="100" value="{{$item->qty}}" readonly />
+                                                <input class="product-qty"" type="text" min="1" max="100" value="" readonly />
                                                 <button class="btn btn-success product-increment">+</button>
                                             </div>
                                         </td>
 
                                         <td class="wsus__pro_icon">
-                                            <a href="{{route('cart.remove-product', $item->rowId)}}"><i class="far fa-times"></i></a>
+                                            <a href=""><i class="far fa-times"></i></a>
                                         </td>
                                     </tr>
-                                    @endforeach
-
-                                    @if (count($cartItems) === 0)
+                                  
                                         <tr class="d-flex" >
                                             <td class="wsus__pro_icon" rowspan="2" style="width:100%">
                                                 Cart is empty!
                                             </td>
                                         </tr>
 
-                                    @endif
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3">
+             <div class="col-xl-3">
                     <div class="wsus__cart_list_footer_button" id="sticky_sidebar">
                         <h6>total cart</h6>
                         <p>subtotal: <span id="sub_total">{{$settings->currency_icon}}{{getCartTotal()}}</span></p>
@@ -128,38 +121,15 @@
                             <input type="text" placeholder="Coupon Code" name="coupon_code" value="{{session()->has('coupon') ? session()->get('coupon')['coupon_code'] : ''}}">
                             <button type="submit" class="common_btn">apply</button>
                         </form>
-                        <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">checkout</a>
+                        <a class="common_btn mt-4 w-100 text-center" href="">checkout</a>
                         <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}"><i
                                 class="fab fa-shopify"></i> Keep Shopping</a>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </section>
-    <section id="wsus__single_banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="wsus__single_banner_content">
-                            @if ($cartpage_banner_section->banner_one->status == 1)
-                            <a href="{{$cartpage_banner_section->banner_one->banner_url}}">
-                                <img class="img-gluid" src="{{asset($cartpage_banner_section->banner_one->banner_image)}}" alt="">
-                            </a>
-                            @endif
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="wsus__single_banner_content single_banner_2">
-                            @if ($cartpage_banner_section->banner_two->status == 1)
-                            <a href="{{$cartpage_banner_section->banner_two->banner_url}}">
-                                <img class="img-gluid" src="{{asset($cartpage_banner_section->banner_two->banner_image)}}" alt="">
-                            </a>
-                            @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!--============================
           CART VIEW PAGE END
     ==============================-->
@@ -299,7 +269,7 @@
             let formData = $(this).serialize();
             $.ajax({
                 method: 'GET',
-                url: "{{ route('apply-coupon') }}",
+                url: "",
                 data: formData,
                 success: function(data) {
                    if(data.status === 'error'){
@@ -320,7 +290,7 @@
         function calculateCouponDescount(){
             $.ajax({
                 method: 'GET',
-                url: "{{ route('coupon-calculation') }}",
+                url: "",
                 success: function(data) {
                     if(data.status === 'success'){
                         $('#discount').text('{{$settings->currency_icon}}'+data.discount);

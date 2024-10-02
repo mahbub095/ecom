@@ -50,9 +50,8 @@ class CartController extends Controller
                $variants[$variantItem->productVariant->name]['price'] = $variantItem->price;
                $variantTotalAmount += $variantItem->price;
            }
-       }
-
-
+       
+        }
        /** check discount */
        $productPrice = 0;
 
