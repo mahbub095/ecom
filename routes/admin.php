@@ -4,6 +4,8 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AdminReviewController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
+use App\Http\Controllers\Backend\HomePageSettingController;
+use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ChildCategoryController;
 use App\Http\Controllers\Backend\FlashSaleController;
@@ -92,6 +94,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('generale-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('generale-setting-update');
     Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
     Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
+
+    /** home page setting route */
+    Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting');
+    Route::put('popular-category-section', [HomePageSettingController::class, 'updatePopularCategorySection'])->name('popular-category-section');
+
+    Route::put('product-slider-section-one', [HomePageSettingController::class, 'updateProductSliderSectionOn'])->name('product-slider-section-one');
+    Route::put('product-slider-section-two', [HomePageSettingController::class, 'updateProductSliderSectionTwo'])->name('product-slider-section-two');
+    Route::put('product-slider-section-three', [HomePageSettingController::class, 'updateProductSliderSectionThree'])->name('product-slider-section-three');
+
+
+    /** Blog routes */
+    Route::put('blog-category/status-change', [BlogCategoryController::class, 'changeStatus'])->name('blog-category.status-change');
+    Route::resource('blog-category', BlogCategoryController::class);
+
+    Route::put('blog/status-change', [BlogController::class, 'changeStatus'])->name('blog.status-change');
+    Route::resource('blog', BlogController::class);
+    Route::get('blog-comments', [BlogCommentController::class, 'index'])->name('blog-comments.index');
+    Route::delete('blog-comments/{id}/destory', [BlogCommentController::class, 'destory'])->name('blog-comments.destory');
 
     /** Flash Sale Routes */
     Route::get('flash-sale', [FlashSaleController::class, 'index'])->name('flash-sale.index');

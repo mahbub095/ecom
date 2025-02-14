@@ -136,9 +136,9 @@
                 <ul class="dropdown-menu">
                     <li class=" "><a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a></li>
 
-                    {{--  <li class="{{ setActive(['admin.slider.*']) }}"><a class="nav-link"
+                   <li class= ""><a class="nav-link"
                               href="{{ route('admin.home-page-setting') }}">Home Page Setting</a></li>
-
+    {{--
                       <li class="{{ setActive(['admin.vendor-condition.index']) }}"><a class="nav-link"
                               href="{{ route('admin.vendor-condition.index') }}">Vendor Condition</a></li>
                       <li class="{{ setActive(['admin.about.index']) }}"><a class="nav-link"
