@@ -150,26 +150,28 @@
             </li>
             <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-wrench"></i>
                     <span>Settings</span></a></li>
+                    <li>
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                                    class="fab fa-blogger-b"></i> <span>Manage Blog</span></a>
+                            <ul class="dropdown-menu">
+
+                                <li class=""><a class="nav-link"
+                                        href="{{ route('admin.blog-category.index') }}">Categories</a></li>
+                                <li class=""><a class="nav-link"
+                                        href="{{ route('admin.blog.index') }}">Blogs</a></li>
+                                <li class="{{ setActive(['admin.blog-comments.index']) }}"><a class="nav-link"
+                                        href="{{ route('admin.blog-comments.index') }}">Blog Comments</a></li>
+                            
+                        </li>
         </ul>
+
+     
         {{--
                         <li><a class="nav-link {{ setActive(['admin.advertisement.*']) }}"
                                 href="{{ route('admin.advertisement.index') }}"><i class="fas fa-ad"></i>
                                 <span>Advertisement</span></a></li>
 
-                        <li
-                            class="dropdown {{ setActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-comments.index']) }}">
-                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                                    class="fab fa-blogger-b"></i> <span>Manage Blog</span></a>
-                            <ul class="dropdown-menu">
-
-                                <li class="{{ setActive(['admin.blog-category.*']) }}"><a class="nav-link"
-                                        href="{{ route('admin.blog-category.index') }}">Categories</a></li>
-                                <li class="{{ setActive(['admin.blog.*']) }}"><a class="nav-link"
-                                        href="{{ route('admin.blog.index') }}">Blogs</a></li>
-                                <li class="{{ setActive(['admin.blog-comments.index']) }}"><a class="nav-link"
-                                        href="{{ route('admin.blog-comments.index') }}">Blog Comments</a></li>
-                            </ul>
-                        </li>
+                        
 
                         <li><a class="nav-link {{ setActive(['admin.messages.index']) }}"
                             href="{{ route('admin.messages.index') }}"><i class="fas fa-user"></i>
