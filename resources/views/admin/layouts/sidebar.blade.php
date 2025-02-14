@@ -165,7 +165,9 @@
                         </li>
         </ul>
 
-     
+        <li><a class="nav-link"
+                                href="{{ route('admin.subscribers.index') }}"><i class="fas fa-user"></i>
+                                <span>Subscribers</span></a></li>
         {{--
                         <li><a class="nav-link {{ setActive(['admin.advertisement.*']) }}"
                                 href="{{ route('admin.advertisement.index') }}"><i class="fas fa-ad"></i>

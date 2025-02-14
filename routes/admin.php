@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\BlogCommentController;
+use App\Http\Controllers\Backend\SubscribersController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\ChildCategoryController;
 use App\Http\Controllers\Backend\FlashSaleController;
@@ -122,5 +123,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('flash-sale/show-at-home/status-change', [FlashSaleController::class, 'chageShowAtHomeStatus'])->name('flash-sale.show-at-home.change-status');
     Route::put('flash-sale-status', [FlashSaleController::class, 'changeStatus'])->name('flash-sale-status');
     Route::delete('flash-sale/{id}', [FlashSaleController::class, 'destory'])->name('flash-sale.destory');
+
+    /** Subscribers route */
+    Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
+    Route::delete('subscribers/{id}', [SubscribersController::class, 'destory'])->name('subscribers.destory');
+    Route::post('subscribers-send-mail', [SubscribersController::class, 'sendMail'])->name('subscribers-send-mail');
 
 });
