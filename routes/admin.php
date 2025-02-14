@@ -22,6 +22,9 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\CustomerListController;
+use App\Http\Controllers\Backend\AdminListController;
+use App\Http\Controllers\Backend\ManageUserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -128,5 +131,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
     Route::delete('subscribers/{id}', [SubscribersController::class, 'destory'])->name('subscribers.destory');
     Route::post('subscribers-send-mail', [SubscribersController::class, 'sendMail'])->name('subscribers-send-mail');
+
+
+    /** coustomer list routes */
+    Route::get('customer', [CustomerListController::class, 'index'])->name('customer.index');
+    Route::put('customer/status-change', [CustomerListController::class, 'changeStatus'])->name('customer.status-change');
+    /** coustomer list routes */
+    Route::get('admin-list', [AdminListController::class, 'index'])->name('admin-list.index');
+    Route::put('admin-list/status-change', [AdminListController::class, 'changeStatus'])->name('admin-list.status-change');
+    Route::delete('admin-list/{id}', [AdminListController::class, 'destory'])->name('admin-list.destory');
+
+
+    /** manage user routes */
+    Route::get('manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
+    Route::post('manage-user', [ManageUserController::class, 'create'])->name('manage-user.create');
+
 
 });

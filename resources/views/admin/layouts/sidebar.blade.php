@@ -168,6 +168,23 @@
         <li><a class="nav-link"
                                 href="{{ route('admin.subscribers.index') }}"><i class="fas fa-user"></i>
                                 <span>Subscribers</span></a></li>
+
+                                <li
+                            class="">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i>
+                                <span>Users</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ setActive(['admin.customer.index']) }}"><a class="nav-link"
+                                        href="{{ route('admin.customer.index') }}">Customer list</a></li>
+
+                                <li class="{{ setActive(['admin.admin-list.index']) }}"><a class="nav-link"
+                                        href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>
+
+                                <li class="{{ setActive(['admin.manage-user.index']) }}"><a class="nav-link"
+                                        href="{{ route('admin.manage-user.index') }}">Manage user</a></li>
+
+                            </ul>
+                        </li>
         {{--
                         <li><a class="nav-link {{ setActive(['admin.advertisement.*']) }}"
                                 href="{{ route('admin.advertisement.index') }}"><i class="fas fa-ad"></i>
