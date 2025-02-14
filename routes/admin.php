@@ -21,10 +21,16 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\TermsAndConditionController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\CustomerListController;
 use App\Http\Controllers\Backend\AdminListController;
 use App\Http\Controllers\Backend\ManageUserController;
+use App\Http\Controllers\Backend\FooterInfoController;
+use App\Http\Controllers\Backend\FooterSocialController;
+use App\Http\Controllers\Backend\FooterGridTwoController;
+use App\Http\Controllers\Backend\FooterGridThreeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -145,6 +151,27 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     /** manage user routes */
     Route::get('manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
     Route::post('manage-user', [ManageUserController::class, 'create'])->name('manage-user.create');
+
+    /** about routes */
+    Route::get('about', [AboutController::class, 'index'])->name('about.index');
+    Route::put('about/update', [AboutController::class, 'update'])->name('about.update');
+    /** terms and conditons routes */
+    Route::get('terms-and-conditions', [TermsAndConditionController::class, 'index'])->name('terms-and-conditions.index');
+    Route::put('terms-and-conditions/update', [TermsAndConditionController::class, 'update'])->name('terms-and-conditions.update');
+
+
+    /** footer routes */
+    Route::resource('footer-info', FooterInfoController::class);
+    Route::put('footer-socials/change-status', [FooterSocialController::class, 'changeStatus'])->name('footer-socials.change-status');
+    Route::resource('footer-socials', FooterSocialController::class);
+
+    Route::put('footer-grid-two/change-status', [FooterGridTwoController::class, 'changeStatus'])->name('footer-grid-two.change-status');
+    Route::put('footer-grid-two/change-title', [FooterGridTwoController::class, 'changeTitle'])->name('footer-grid-two.change-title');
+    Route::resource('footer-grid-two', FooterGridTwoController::class);
+
+    Route::put('footer-grid-three/change-status', [FooterGridThreeController::class, 'changeStatus'])->name('footer-grid-three.change-status');
+    Route::put('footer-grid-three/change-title', [FooterGridThreeController::class, 'changeTitle'])->name('footer-grid-three.change-title');
+    Route::resource('footer-grid-three', FooterGridThreeController::class);
 
 
 });

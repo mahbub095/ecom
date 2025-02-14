@@ -138,6 +138,12 @@
 
                    <li class= ""><a class="nav-link"
                               href="{{ route('admin.home-page-setting') }}">Home Page Setting</a></li>
+
+                              <li class=" "><a class="nav-link"
+                              href="{{ route('admin.about.index') }}">About page</a></li>
+                      <li class=" "><a class="nav-link"
+                              href="{{ route('admin.terms-and-conditions.index') }}">Terms Page</a></li>  
+                              
     {{--
                       <li class="{{ setActive(['admin.vendor-condition.index']) }}"><a class="nav-link"
                               href="{{ route('admin.vendor-condition.index') }}">Vendor Condition</a></li>
@@ -182,6 +188,26 @@
 
                                 <li class="{{ setActive(['admin.manage-user.index']) }}"><a class="nav-link"
                                         href="{{ route('admin.manage-user.index') }}">Manage user</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li
+                            class=" ">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                                    class="fas fa-th-large"></i><span>Footer</span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" "><a class="nav-link"
+                                        href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
+
+                                <li class=" "><a class="nav-link"
+                                        href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li>
+
+                                <li class=" "><a class="nav-link"
+                                        href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li>
+
+                                <li class=" "><a class="nav-link"
+                                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
 
                             </ul>
                         </li>
