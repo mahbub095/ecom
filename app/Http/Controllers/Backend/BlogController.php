@@ -86,7 +86,7 @@ class BlogController extends Controller
     {
         $request->validate([
             'image' => ['nullable', 'image', 'max:3000'],
-            'title' => ['required', 'max:200', 'unique:blogs,title,'.$id],
+            'title' => ['required', 'max:200', 'unique:blogs,title,' . $id],
             'category' => ['required'],
             'description' => ['required'],
             'seo_title' => ['nullable', 'max:200'],

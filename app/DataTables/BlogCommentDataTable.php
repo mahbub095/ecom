@@ -22,18 +22,18 @@ class BlogCommentDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                $deleteBtn = "<a href='".route('admin.blog-comments.destory', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+            ->addColumn('action', function ($query) {
+                $deleteBtn = "<a href='" . route('admin.blog-comments.destory', $query->id) . "' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $deleteBtn;
             })
-            ->addColumn('post', function($query){
-                return "<a href='".route('blog-details',$query->blog->slug)." target='_blank'>".$query->blog->title."</a>";
+            ->addColumn('post', function ($query) {
+                return "<a href='" . route('blog-details', $query->blog->slug) . " target='_blank'>" . $query->blog->title . "</a>";
             })
-            ->addColumn('user_name', function($query){
+            ->addColumn('user_name', function ($query) {
                 return $query->user->name;
             })
-            ->addColumn('user_comment', function($query){
+            ->addColumn('user_comment', function ($query) {
                 return $query->comment;
             })
             ->rawColumns(['post', 'action'])
@@ -54,20 +54,20 @@ class BlogCommentDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('blogcomment-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(0)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('blogcomment-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(0)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ]);
     }
 
     /**
@@ -82,10 +82,10 @@ class BlogCommentDataTable extends DataTable
             Column::make('user_name'),
             Column::make('user_comment'),
             Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(60)
-            ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
