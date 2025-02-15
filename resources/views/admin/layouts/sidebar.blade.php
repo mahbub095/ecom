@@ -183,7 +183,7 @@
                                 <li class="{{ setActive(['admin.customer.index']) }}"><a class="nav-link"
                                         href="{{ route('admin.customer.index') }}">Customer list</a></li>
 
-                                <li class="{{ setActive(['admin.admin-list.index']) }}"><a class="nav-link"
+                                <li class="{{ setActive(route: ['admin.admin-list.index']) }}"><a class="nav-link"
                                         href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>
 
                                 <li class="{{ setActive(['admin.manage-user.index']) }}"><a class="nav-link"
