@@ -24,8 +24,8 @@
                                     <label>Icon</label>
                                     <div>
                                         <button class="btn btn-primary" data-icon="{{ $category->icon }}"
-                                                data-selected-class="btn-danger" data-unselected-class="btn-info"
-                                                role="iconpicker" name="icon"></button>
+                                            data-selected-class="btn-danger" data-unselected-class="btn-info"
+                                            role="iconpicker" name="icon"></button>
                                     </div>
 
                                 </div>
@@ -36,7 +36,8 @@
                                 <div class="form-group">
                                     <label for="inputState">Status</label>
                                     <select id="inputState" class="form-control" name="status">
-                                        <option {{ $category->status == 1 ? 'selected' : '' }} value="1">Active</option>
+                                        <option {{ $category->status == 1 ? 'selected' : '' }} value="1">Active
+                                        </option>
                                         <option {{ $category->status == 0 ? 'selected' : '' }} value="0">Inactive
                                         </option>
                                     </select>

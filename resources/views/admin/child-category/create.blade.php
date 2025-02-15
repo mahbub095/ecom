@@ -17,14 +17,14 @@
 
                         </div>
                         <div class="card-body">
-                            <form action="{{route('admin.child-category.store')}}" method="POST">
+                            <form action="{{ route('admin.child-category.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="inputState">Category</label>
                                     <select id="inputState" class="form-control main-category" name="category">
                                         <option value="">Select</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -56,28 +56,28 @@
 
         </div>
     </section>
-
 @endsection
 
 @push('scripts')
     <script>
-        $(document).ready(function () {
-            $('body').on('change', '.main-category', function (e) {
+        $(document).ready(function() {
+            $('body').on('change', '.main-category', function(e) {
                 let id = $(this).val();
                 $.ajax({
                     method: 'GET',
-                    url: "{{route('admin.get-subcategories')}}",
+                    url: "{{ route('admin.get-subcategories') }}",
                     data: {
                         id: id
                     },
-                    success: function (data) {
+                    success: function(data) {
                         $('.sub-category').html('<option value="">Select</option>')
 
-                        $.each(data, function (i, item) {
-                            $('.sub-category').append(`<option value="${item.id}">${item.name}</option>`)
+                        $.each(data, function(i, item) {
+                            $('.sub-category').append(
+                                `<option value="${item.id}">${item.name}</option>`)
                         })
                     },
-                    error: function (xhr, status, error) {
+                    error: function(xhr, status, error) {
                         console.log(error);
                     }
                 })

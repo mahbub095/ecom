@@ -35,8 +35,8 @@
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
     <script>
-        $(document).ready(function () {
-            $('body').on('click', '.change-status', function () {
+        $(document).ready(function() {
+            $('body').on('click', '.change-status', function() {
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
 
@@ -47,10 +47,10 @@
                         status: isChecked,
                         id: id
                     },
-                    success: function (data) {
+                    success: function(data) {
                         toastr.success(data.message)
                     },
-                    error: function (xhr, status, error) {
+                    error: function(xhr, status, error) {
                         console.log(error);
                     }
                 })
