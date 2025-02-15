@@ -107,7 +107,7 @@ class FooterSocialController extends Controller
         $footer = FooterSocial::findOrFail($request->id);
         $footer->status = $request->status == 'true' ? 1 : 0;
         $footer->save();
-        
+
         Cache::forget('footer_socials');
 
         return response(['message' => 'Status has been updated!']);
