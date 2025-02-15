@@ -103,7 +103,7 @@ class FooterGridTwoController extends Controller
         $footer = FooterGridTwo::findOrFail($request->id);
         $footer->status = $request->status == 'true' ? 1 : 0;
         $footer->save();
-        
+
         Cache::forget('footer_grid_two');
 
         return response(['message' => 'Status has been updated!']);
@@ -111,17 +111,17 @@ class FooterGridTwoController extends Controller
 
     public function changeTitle(Request $request)
     {
-       $request->validate([
-        'title' => ['required', 'max:200']
-       ]);
+        $request->validate([
+            'title' => ['required', 'max:200']
+        ]);
 
-       FooterTitle::updateOrCreate(
-        ['id' => 1],
-        ['footer_grid_two_title' => $request->title]
-       );
+        FooterTitle::updateOrCreate(
+            ['id' => 1],
+            ['footer_grid_two_title' => $request->title]
+        );
 
-       toastr('Updated Successfully', 'success', 'success');
+        toastr('Updated Successfully', 'success', 'success');
 
-       return redirect()->back();
+        return redirect()->back();
     }
 }
