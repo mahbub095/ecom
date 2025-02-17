@@ -24,7 +24,7 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        if(!Session::has('address')){
+        if (!Session::has('address')) {
             return redirect()->route('user.checkout');
         }
         return view('frontend.pages.payment');
@@ -43,7 +43,7 @@ class PaymentController extends Controller
         $order->invocie_id = rand(1, 999999);
         $order->user_id = Auth::user()->id;
         $order->sub_total = getCartTotal();
-        $order->amount =  getFinalPayableAmount();
+        $order->amount = getFinalPayableAmount();
         $order->currency_name = $setting->currency_name;
         $order->currency_icon = $setting->currency_icon;
         $order->product_qty = \Cart::content()->count();
@@ -56,7 +56,7 @@ class PaymentController extends Controller
         $order->save();
 
         // store order products
-        foreach(\Cart::content() as $item){
+        foreach (\Cart::content() as $item) {
             $product = Product::find($item->id);
             $orderProduct = new OrderProduct();
             $orderProduct->order_id = $order->id;
@@ -100,13 +100,13 @@ class PaymentController extends Controller
     {
         $codPaySetting = CodSetting::first();
         $setting = GeneralSetting::first();
-        if($codPaySetting->status == 0){
+        if ($codPaySetting->status == 0) {
             return redirect()->back();
         }
 
         // amount calculation
-       $total = getFinalPayableAmount();
-       $payableAmount = round($total, 2);
+        $total = getFinalPayableAmount();
+        $payableAmount = round($total, 2);
 
 
         $this->storeOrder('COD', 0, \Str::random(10), $payableAmount, $setting->currency_name);
@@ -114,7 +114,7 @@ class PaymentController extends Controller
         $this->clearSession();
 
         return redirect()->route('user.payment.success');
-            
+
     }
 
 }
