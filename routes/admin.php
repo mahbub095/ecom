@@ -32,6 +32,7 @@ use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridTwoController;
 use App\Http\Controllers\Backend\PaymentSettingController;
 use App\Http\Controllers\Backend\CodSettingController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\FooterGridThreeController;
 use Illuminate\Support\Facades\Route;
 
@@ -182,6 +183,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
     // Route::put('razorpay-setting/{id}', [RazorpaySettingController::class, 'update'])->name('razorpay-setting.update');
     Route::put('cod-setting/{id}', [CodSettingController::class, 'update'])->name('cod-setting.update');
+
+
+    /** Order routes */
+Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
+Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
+
+Route::get('pending-orders', [OrderController::class, 'pendingOrders'])->name('pending-orders');
+Route::get('processed-orders', [OrderController::class, 'processedOrders'])->name('processed-orders');
+Route::get('dropped-off-orders', [OrderController::class, 'droppedOfOrders'])->name('dropped-off-orders');
+
+Route::get('shipped-orders', [OrderController::class, 'shippedOrders'])->name('shipped-orders');
+Route::get('out-for-delivery-orders', [OrderController::class, 'outForDeliveryOrders'])->name('out-for-delivery-orders');
+Route::get('delivered-orders', [OrderController::class, 'deliveredOrders'])->name('delivered-orders');
+Route::get('canceled-orders', [OrderController::class, 'canceledOrders'])->name('canceled-orders');
+Route::resource('order', OrderController::class);
 
 
 
