@@ -30,11 +30,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
- 
+
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';
@@ -43,7 +43,7 @@ Route::get('flash-sale', [FlashSaleController::class, 'index'])->name('flash-sal
 
 /** Product route */
 Route::get('product-detail/{slug}', [FrontendProductController::class, 'showProduct'])->name('product-detail');
- 
+
 /** Cart routes */
 Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('cart-details', [CartController::class, 'cartDetails'])->name('cart-details');
@@ -55,27 +55,27 @@ Route::get('cart-products', [CartController::class, 'getCartProducts'])->name('c
 Route::post('cart/remove-sidebar-product', [CartController::class, 'removeSidebarProduct'])->name('cart.remove-sidebar-product');
 Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->name('cart.sidebar-product-total');
 
-Route::group(['middleware' =>['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function(){
-    Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
-    Route::get('profile', [UserProfileController::class, 'index'])->name('profile'); // user.profile
-    Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update'); // user.profile.update
-    Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');
+Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
+  Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+  Route::get('profile', [UserProfileController::class, 'index'])->name('profile'); // user.profile
+  Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update'); // user.profile.update
+  Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');
 
-     /** Order Routes */
-     Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');
-     Route::get('orders/show/{id}', [UserOrderController::class, 'show'])->name('orders.show');
- 
+  /** Order Routes */
+  Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');
+  Route::get('orders/show/{id}', [UserOrderController::class, 'show'])->name('orders.show');
 
-    /** Checkout routes */
-    Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
-    Route::post('checkout/address-create', [CheckOutController::class, 'createAddress'])->name('checkout.address.create');
-    Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
+
+  /** Checkout routes */
+  Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
+  Route::post('checkout/address-create', [CheckOutController::class, 'createAddress'])->name('checkout.address.create');
+  Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
 
   /** Payment Routes */
   Route::get('payment', [PaymentController::class, 'index'])->name('payment');
   Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
-    /** COD routes */
-    Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
+  /** COD routes */
+  Route::get('cod/payment', [PaymentController::class, 'payWithCod'])->name('cod.payment');
 
 });
