@@ -30,6 +30,8 @@ use App\Http\Controllers\Backend\ManageUserController;
 use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridTwoController;
+use App\Http\Controllers\Backend\PaymentSettingController;
+use App\Http\Controllers\Backend\CodSettingController;
 use App\Http\Controllers\Backend\FooterGridThreeController;
 use Illuminate\Support\Facades\Route;
 
@@ -172,6 +174,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('footer-grid-three/change-status', [FooterGridThreeController::class, 'changeStatus'])->name('footer-grid-three.change-status');
     Route::put('footer-grid-three/change-title', [FooterGridThreeController::class, 'changeTitle'])->name('footer-grid-three.change-title');
     Route::resource('footer-grid-three', FooterGridThreeController::class);
+
+
+    /** Payment settings routes */
+    Route::get('payment-settings', [PaymentSettingController::class, 'index'])->name('payment-settings.index');
+    // Route::resource('paypal-setting', PaypalSettingController::class);
+    // Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
+    // Route::put('razorpay-setting/{id}', [RazorpaySettingController::class, 'update'])->name('razorpay-setting.update');
+    Route::put('cod-setting/{id}', [CodSettingController::class, 'update'])->name('cod-setting.update');
+
 
 
 });
