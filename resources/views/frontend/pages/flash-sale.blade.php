@@ -73,55 +73,41 @@
                                                 class="far fa-eye"></i></a></li>
                                     <li><a href="" class="add_to_wishlist" data-id="{{$product->id}}"><i
                                                 class="far fa-heart"></i></a></li>
-                                    {{-- <li><a href="#"><i class="far fa-random"></i></a> --}}
+                                     <li><a href="#"><i class="far fa-random"></i></a> 
                                 </ul>
-                                {{--                                <div class="wsus__product_details">--}}
-                                {{--                                    <a class="wsus__category" href="#">{{$product->category->name}} </a>--}}
-                                {{--                                    <p class="wsus__pro_rating">--}}
-                                {{--                                        @php--}}
-                                {{--                                            $avgRating = $product->reviews()->avg('rating');--}}
-                                {{--                                            $fullRating = round($avgRating);--}}
-                                {{--                                        @endphp--}}
-
-                                {{--                                        @for ($i = 1; $i <= 5; $i++)--}}
-                                {{--                                            @if ($i <= $fullRating)--}}
-                                {{--                                                <i class="fas fa-star"></i>--}}
-                                {{--                                            @else--}}
-                                {{--                                                <i class="far fa-star"></i>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        @endfor--}}
-
-                                {{--                                        <span>({{count($product->reviews)}} review)</span>--}}
-                                {{--                                    </p>--}}
-                                {{--                                    <a class="wsus__pro_name"--}}
-                                {{--                                       href="{{route('product-detail', $product->slug)}}">{{$product->name}}</a>--}}
-                                {{--                                    @if(checkDiscount($product))--}}
-                                {{--                                        <p class="wsus__price">{{$settings->currency_icon}}{{$product->offer_price}}--}}
-                                {{--                                            <del>{{$settings->currency_icon}}{{$product->price}}</del>--}}
-                                {{--                                        </p>--}}
-                                {{--                                    @else--}}
-                                {{--                                        <p class="wsus__price">{{$settings->currency_icon}}{{$product->price}}</p>--}}
-                                {{--                                    @endif--}}
-                                {{--                                    <form class="shopping-cart-form">--}}
-                                {{--                                        <input type="hidden" name="product_id" value="{{$product->id}}">--}}
-                                {{--                                        @foreach ($product->variants as $variant)--}}
-                                {{--                                            @if ($variant->status != 0)--}}
-                                {{--                                                <select class="d-none" name="variants_items[]">--}}
-                                {{--                                                    @foreach ($variant->productVariantItems as $variantItem)--}}
-                                {{--                                                        @if ($variantItem->status != 0)--}}
-                                {{--                                                            <option--}}
-                                {{--                                                                value="{{$variantItem->id}}" {{$variantItem->is_default == 1 ? 'selected' : ''}}>{{$variantItem->name}}--}}
-                                {{--                                                                (${{$variantItem->price}})--}}
-                                {{--                                                            </option>--}}
-                                {{--                                                        @endif--}}
-                                {{--                                                    @endforeach--}}
-                                {{--                                                </select>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        @endforeach--}}
-                                {{--                                        <input class="" name="qty" type="hidden" min="1" max="100" value="1"/>--}}
-                                {{--                                        <button class="add_cart" type="submit">add to cart</button>--}}
-                                {{--                                    </form>--}}
-                                {{--                                </div>--}}
+                                                           <div class="wsus__product_details"> 
+                                                             <a class="wsus__category" href="#">{{$product->category->name}} </a> 
+                                                            <p class="wsus__pro_rating"> 
+                  
+                                                         <a class="wsus__pro_name"
+                                                                  href="{{route('product-detail', $product->slug)}}">{{$product->name}}</a>
+                                                                @if(checkDiscount($product))
+                                                                  <p class="wsus__price">{{$settings->currency_icon}}{{$product->offer_price}}
+                                                                          <del>{{$settings->currency_icon}}{{$product->price}}</del>
+                                                                    </p>
+                                                                 @else
+                                                                   <p class="wsus__price">{{$settings->currency_icon}}{{$product->price}}</p>
+                                                            @endif
+                                                       <form class="shopping-cart-form">
+                                                                       <input type="hidden" name="product_id" value="{{$product->id}}">
+                                                                      @foreach ($product->variants as $variant)
+                                                                          @if ($variant->status != 0)
+                                                                              <select class="d-none" name="variants_items[]">
+                                                                                   @foreach ($variant->productVariantItems as $variantItem)
+                                                                                @if ($variantItem->status != 0)
+                                                                                       <option
+                                                                                        value="{{$variantItem->id}}" {{$variantItem->is_default == 1 ? 'selected' : ''}}>{{$variantItem->name}}
+                                                                                          (${{$variantItem->price}})-
+                                                                                        </option>
+                                                                                  @endif
+                                                                              @endforeach
+                                                                          </select>
+                                                                      @endif
+                                                               @endforeach
+                                                              <input class="" name="qty" type="hidden" min="1" max="100" value="1"/>
+                                                                    <button class="add_cart" type="submit">add to cart</button>
+                                                                 </form>
+                                                          </div>
                             </div>
                         </div>
                     @endforeach
