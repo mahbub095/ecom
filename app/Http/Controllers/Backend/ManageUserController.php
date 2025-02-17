@@ -35,7 +35,7 @@ class ManageUserController extends Controller
             $user->status = 'active';
             $user->save();
 
-            Mail::to($request->email)->send(new AccountCreatedMail($request->name, $request->email, $request->password));
+            // Mail::to($request->email)->send(new AccountCreatedMail($request->name, $request->email, $request->password));
 
             toastr('Created Successfully!', 'success', 'success');
             return redirect()->back();
