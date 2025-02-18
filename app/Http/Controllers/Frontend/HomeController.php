@@ -54,36 +54,4 @@ class HomeController extends Controller
             ));
     }
 
-
-    public function getTypeBaseProduct()
-    {
-        $typeBaseProducts = [];
-
-        $typeBaseProducts['new_arrival'] = Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where(['product_type' => 'new_arrival', 'is_approved' => 1, 'status' => 1])->orderBy('id', 'DESC')->take(8)->get();
-
-        $typeBaseProducts['featured_product'] = Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where(['product_type' => 'featured_product', 'is_approved' => 1, 'status' => 1])->orderBy('id', 'DESC')->take(8)->get();
-
-        $typeBaseProducts['top_product'] = Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where(['product_type' => 'top_product', 'is_approved' => 1, 'status' => 1])->orderBy('id', 'DESC')->take(8)->get();
-
-        $typeBaseProducts['best_product'] = Product::withAvg('reviews', 'rating')->withCount('reviews')
-        ->with(['variants', 'category', 'productImageGalleries'])
-        ->where(['product_type' => 'best_product', 'is_approved' => 1, 'status' => 1])->orderBy('id', 'DESC')->take(8)->get();
-
-        return $typeBaseProducts;
-    }
-
-    function ShowProductModal(string $id) {
-        $product = Product::findOrFail($id);
- 
-        $content = view('frontend.layouts.modal', compact('product'))->render();
- 
-        return Response::make($content, 200, ['Content-Type' => 'text/html']);
-     }
- }
- 
+}
