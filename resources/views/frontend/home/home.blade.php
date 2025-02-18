@@ -19,6 +19,9 @@ e-Commerce HTML Template
 @include('frontend.home.sections.flash-sale')
 
 @include('frontend.home.sections.brand-slider') 
+@include('frontend.home.sections.single-banner')  
+@include('frontend.home.sections.hot-deals')  
+  @include('frontend.home.sections.large-banner')  
 <!--============================
             FLASH SELL END
         ==============================-->
@@ -45,7 +48,7 @@ e-Commerce HTML Template
 <!--============================
             SINGLE BANNER START
         ==============================-->
-{{-- @include('frontend.home.sections.single-banner') --}}
+ 
 <!--============================
             SINGLE BANNER END
         ==============================-->
@@ -54,7 +57,7 @@ e-Commerce HTML Template
 <!--============================
             HOT DEALS START
         ==============================-->
-{{-- @include('frontend.home.sections.hot-deals') --}}
+  @include('frontend.home.sections.hot-deals')  
 <!--============================
             HOT DEALS END
         ==============================-->
@@ -101,7 +104,7 @@ e-Commerce HTML Template
 <!--============================
           HOME SERVICES START
         ==============================-->
-{{-- @include('frontend.home.sections.services') --}}
+  @include('frontend.home.sections.services')  
 <!--============================
             HOME SERVICES END
         ==============================-->
