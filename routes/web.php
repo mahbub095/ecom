@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,11 +56,18 @@ Route::get('cart-products', [CartController::class, 'getCartProducts'])->name('c
 Route::post('cart/remove-sidebar-product', [CartController::class, 'removeSidebarProduct'])->name('cart.remove-sidebar-product');
 Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->name('cart.sidebar-product-total');
 
+/** blog routes */
+Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
+Route::get('blog', [BlogController::class, 'blog'])->name('blog');
+
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
   Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
   Route::get('profile', [UserProfileController::class, 'index'])->name('profile'); // user.profile
   Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update'); // user.profile.update
   Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');
+
+  /** blog comment routes */
+  Route::post('blog-comment', [BlogController::class, 'comment'])->name('blog-comment');
 
   /** Order Routes */
   Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');

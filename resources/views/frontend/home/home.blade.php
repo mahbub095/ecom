@@ -17,6 +17,8 @@ e-Commerce HTML Template
             FLASH SELL START
         ==============================-->
 @include('frontend.home.sections.flash-sale')
+
+@include('frontend.home.sections.brand-slider') 
 <!--============================
             FLASH SELL END
         ==============================-->
@@ -25,7 +27,7 @@ e-Commerce HTML Template
 <!--============================
            MONTHLY TOP PRODUCT START
         ==============================-->
-{{--@include('frontend.home.sections.top-category-product')--}}
+{{--@include('frontend.home.sections.top-category-product')
 <!--============================
            MONTHLY TOP PRODUCT END
         ==============================-->
@@ -34,7 +36,7 @@ e-Commerce HTML Template
 <!--============================
             BRAND SLIDER START
         ==============================-->
-{{-- @include('frontend.home.sections.brand-slider') --}}
+ 
 <!--============================
             BRAND SLIDER END
         ==============================-->
@@ -108,7 +110,7 @@ e-Commerce HTML Template
 <!--============================
             HOME BLOGS START
         ==============================-->
-{{-- @include('frontend.home.sections.blog') --}}
+  @include('frontend.home.sections.blog') 
 <!--============================
             HOME BLOGS END
         ==============================-->
