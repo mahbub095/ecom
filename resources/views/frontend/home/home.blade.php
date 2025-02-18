@@ -19,6 +19,7 @@ e-Commerce HTML Template
 @include('frontend.home.sections.flash-sale')
 
 @include('frontend.home.sections.brand-slider') 
+ @include('frontend.home.sections.top-category-product')
 @include('frontend.home.sections.single-banner')  
 @include('frontend.home.sections.hot-deals')  
   @include('frontend.home.sections.large-banner')  
@@ -30,7 +31,7 @@ e-Commerce HTML Template
 <!--============================
            MONTHLY TOP PRODUCT START
         ==============================-->
-{{--@include('frontend.home.sections.top-category-product')
+ 
 <!--============================
            MONTHLY TOP PRODUCT END
         ==============================-->

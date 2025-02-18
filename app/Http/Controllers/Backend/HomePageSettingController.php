@@ -13,6 +13,7 @@ class HomePageSettingController extends Controller
     {
         $categories = Category::where('status', 1)->get();
         $popularCategorySection = HomePageSetting::where('key', 'popular_category_section')->first();
+       
         $sliderSectionOne = HomePageSetting::where('key', 'product_slider_section_one')->first();
         $sliderSectionTwo = HomePageSetting::where('key', 'product_slider_section_two')->first();
         $sliderSectionThree = HomePageSetting::where('key', 'product_slider_section_three')->first();

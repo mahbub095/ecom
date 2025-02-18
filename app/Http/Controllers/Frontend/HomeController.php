@@ -21,9 +21,9 @@ class HomeController extends Controller
         $flashSaleDate = FlashSale::first();
         $flashSaleItems = FlashSaleItem::where('show_at_home', 1)->where('status', 1)->get();
 
-        // $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
+        $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
         $brands = Brand::where('status', 1)->where('is_featured', 1)->get();
-        $recentBlogs = Blog::with(['category', 'user'])->where('status',1)->orderBy('id', 'DESC')->take(8)->get();
+        $recentBlogs = Blog::with(['category', 'user'])->where('status', 1)->orderBy('id', 'DESC')->take(8)->get();
 
         $homepage_secion_banner_one = Adverisement::where('key', 'homepage_secion_banner_one')->first();
         $homepage_secion_banner_one = json_decode($homepage_secion_banner_one->value);
@@ -45,13 +45,14 @@ class HomeController extends Controller
                 'flashSaleItems',
                 'brands',
                 'recentBlogs',
-
+                'popularCategory',
                 'homepage_secion_banner_one',
                 'homepage_secion_banner_two',
                 'homepage_secion_banner_three',
                 'homepage_secion_banner_four'
- 
-            ));
+
+            )
+        );
     }
 
 }
